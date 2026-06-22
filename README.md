@@ -1,3 +1,3 @@
-Demonstracyjna strona z ofertami Pracy. Obsuga bazy Danych i back-ednu poprzez Supabase
-React + TypeScript, postawione na Vercelu. 
+Demonstracyjna strona z ofertami Pracy. 
+React + TypeScript + Supabase, postawione na Vercelu. 
 autorzy: Tomasz i Józef Głuch
