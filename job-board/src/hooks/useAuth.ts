@@ -36,7 +36,6 @@ export function useAuth() {
           .select('*')
           .eq('id', session.user.id)
           .single();
-          console.log('Auth state changed, fetched profile:', profileData);
         setProfile(profileData);
       } else {
         setProfile(null);
