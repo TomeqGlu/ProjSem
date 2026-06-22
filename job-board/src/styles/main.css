@@ -95,7 +95,7 @@ button {
 }
 
 /* ======================================================
-   HEADER - Z WYRAŹNYM CIENIEM
+   HEADER 
    ====================================================== */
 .header {
   background-color: #ffffff;
@@ -122,14 +122,34 @@ button {
 }
 
 .header__logo {
-  font-size: var(--font-size-3xl);
+  font-size: var(--font-size-2xl);
   font-weight: 800;
-  color: var(--color-text);
   letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  transition: all var(--transition);
 }
 
-.header__logo:hover {
-  color: var(--color-primary);
+.header__logo--hot {
+  color: #f97316;  
+  font-weight: 900;
+  transition: color var(--transition);
+}
+
+.header__logo--rest {
+  color: #1e293b;  
+  font-weight: 600;
+  transition: color var(--transition);
+}
+
+.header__logo:hover .header__logo--hot {
+  color: #dc2626;  /* CZERWONY */
+}
+
+.header__logo:hover .header__logo--rest {
+  color: var(--color-primary);  
 }
 
 .header__nav {

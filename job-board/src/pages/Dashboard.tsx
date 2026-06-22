@@ -21,7 +21,6 @@ export function Dashboard() {
     setLoading(true);
 
     if (profile?.role === 'recruiter') {
-      // Fetch recruiter's jobs with application counts
       const { data: jobsData } = await supabase
         .from('job_postings')
         .select('*')
@@ -42,7 +41,6 @@ export function Dashboard() {
         setJobs(jobsWithCounts);
       }
     } else if (profile?.role === 'candidate') {
-      // Fetch candidate's applications
       const { data: appsData } = await supabase
         .from('applications')
         .select('*, job_postings(*)')

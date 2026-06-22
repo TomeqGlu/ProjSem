@@ -18,7 +18,7 @@ export function JobDetails() {
       fetchJobDetails();
     }
   }, [id]);//Jeżeli przekaze obiejkt do tab referencji to porównuje stale stringi i nie wywołuje useEffect, jeżeli zmieni się obiekt. 
-  // Jeżeli przekaże tablicę z referencją do obiektu to useEffect wywoła się przy zmianie obiektu.
+  // Jeżeli przekaże tablicę z referencją do obiektu to useEffect wywoła się przy zmianie obiektu. Dlatego musiałem rozbic funkcję fetchJobDetails i updateJobDetails, żeby nie wywoływać fetchJobDetails przy każdej zmianie job, tylko updateJobDetails, który aktualizuje szczegóły oferty w zależności od roli użytkownika i jego relacji do oferty.
 
    useEffect(() => {
     if (job?.id) {
@@ -53,7 +53,6 @@ export function JobDetails() {
 
     const jobWithApps: JobWithApplication = { ...jobData };
 
-    // If recruiter and is author
     if (user && profile?.role === 'recruiter' && jobData.recruiter_id === user.id) {
       const { data: appsData } = await supabase
         .from('applications')
@@ -66,7 +65,7 @@ export function JobDetails() {
         jobWithApps.application_count = appsData.length;
       }
     }
-    // If candidate, check if applied
+    
     if (user && profile?.role === 'candidate') {
       const { data: appData } = await supabase
         .from('applications')

@@ -15,7 +15,8 @@ export function Header() {
     <header className="header">
       <div className="header__container">
         <Link to="/" className="header__logo">
-          PracaCzyniWolnym
+          <span className="header__logo--hot">Gor@ce</span>
+          <span className="header__logo--rest">oferty w twojej okolicy</span>
         </Link>
         
         <nav className="header__nav">
